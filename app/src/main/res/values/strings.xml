@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ChooseUser</string>
+    <string name="to_registration">Зарегистрироваться</string>
+    <string name="login_process">Войти</string>
+    <string name="back">Вход</string>
+    <string name="telephone_or_email">Телефон или Email</string>
+    <string name="restore_password">Забыли пароль?</string>
+    <string name="password">Пароль</string>
+    <string name="short_password">Поле логина или пароля не может быть пустым</string>
+</resources>

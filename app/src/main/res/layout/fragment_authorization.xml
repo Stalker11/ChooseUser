@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="false"
+    android:background="@color/color_background_login"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/autoriz_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/color_background_login"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/splash_dimen"
+            android:text="@string/back"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/telephone_or_email"
+            android:theme="@style/EditTextInput"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white">
+
+        <EditText
+            android:id="@+id/edit_login_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/text_login"
+            android:backgroundTint="@color/white"
+            android:maxLength="30"
+            android:maxLines="2"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_login"
+            android:layout_marginTop="20dp"
+            android:hint="@string/password"
+            android:theme="@style/EditTextInput"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white">
+            <!--android:theme="@style/EditTextInput"-->
+            <EditText
+                android:id="@+id/password_edit_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/text_input_pass"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_login_style"
+            android:text="@string/back"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/but_restore_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/login_enter"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/but_login_style_back"
+            android:text="@string/restore_password"
+            android:textColor="@color/white" />
+
+        <!-- <android.support.design.widget.TextInputLayout
+             android:id="@+id/dfdfg"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignTop="@+id/but_restore_password"
+             android:layout_marginTop="50dp"
+             app:errorEnabled="true"
+             app:passwordToggleEnabled="true">
+
+             <android.support.design.widget.TextInputEditText
+                 android:id="@+id/password_edit"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:backgroundTint="@color/white_text_login"
+                 android:imeOptions="actionNext"
+                 android:inputType="textPassword"
+                 android:maxLines="1"
+                 />
+         </android.support.design.widget.TextInputLayout>-->
+    </RelativeLayout>
+
+</RelativeLayout>
