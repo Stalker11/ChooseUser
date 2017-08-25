@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.olegel.chooseuser.R;
-import com.olegel.chooseuser.ui.RegistActivity;
+import com.olegel.chooseuser.ui.activities.RegisterActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,11 +30,11 @@ public class ChooseFragment extends BaseFragment {
     }
     @OnClick(R.id.but_open_signin_page)
     public void signIn(){
-        ((RegistActivity)getActivity()).getPresenter().onSignInChooseClick();
+        ((RegisterActivity)getActivity()).getPresenter().onSignInChooseClick();
     }
     @OnClick(R.id.but_open_registration_page)
     public void register(){
-        ((RegistActivity)getActivity()).getPresenter().onRegisterChooseClick();
+        ((RegisterActivity)getActivity()).getPresenter().onRegisterChooseClick();
     }
     @Override
     public void onDestroyView() {

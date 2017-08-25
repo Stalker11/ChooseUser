@@ -7,7 +7,9 @@ package com.olegel.chooseuser.presenter.interfaces;
 public interface IMainPresentor {
     void onSignInChooseClick();
     void onRegisterChooseClick();
-    void onLogInClick();
+    void onLogInClick(String login, String password);
     void onForgetPasswordClick();
-    void onRegisterClick();
+    void onRegisterClick(String name, String lastName, String email
+            , String password, String confirmPassword);
+    void unbind();
 }

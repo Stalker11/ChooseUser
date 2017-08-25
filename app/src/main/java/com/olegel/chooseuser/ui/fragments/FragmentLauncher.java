@@ -27,7 +27,9 @@ public class FragmentLauncher {
         launch(new ChooseFragment(),ChooseFragment.class.getSimpleName(),addToBackStack);
     }
     public void setAuthorizationFragment(boolean addToBackStack){
-        launch(new AuthorizationFragment(),AuthorizationFragment.class.getSimpleName(),addToBackStack);
+        launch(new SignInFragment(),SignInFragment.class.getSimpleName(),addToBackStack);
     }
-
+    public void setRegistrationFragment(boolean addToBackStack){
+        launch(new RegistrationFragment(),RegistrationFragment.class.getSimpleName(),addToBackStack);
+    }
 }

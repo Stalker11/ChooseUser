@@ -3,7 +3,6 @@ package com.olegel.chooseuser.ui.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +10,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import com.olegel.chooseuser.R;
-import com.olegel.chooseuser.ui.RegistActivity;
+import com.olegel.chooseuser.ui.activities.RegisterActivity;
 
 import java.util.regex.Pattern;
 
@@ -27,10 +25,10 @@ import butterknife.Unbinder;
  * Created by Oleg on 24.08.2017.
  */
 
-public class AuthorizationFragment extends BaseFragment {
+public class SignInFragment extends BaseFragment {
     private View view;
     private Unbinder unbinder;
-    private RegistActivity act;
+    private RegisterActivity act;
     @BindView(R.id.edit_login_signin)
     EditText login;
     @BindView(R.id.password_edit_login)
@@ -42,7 +40,7 @@ public class AuthorizationFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_authorization, null);
         unbinder = ButterKnife.bind(this,view);
-        act = (RegistActivity)getActivity();
+        act = (RegisterActivity)getActivity();
         return view;
     }
 
@@ -71,7 +69,10 @@ public class AuthorizationFragment extends BaseFragment {
         } else {
             if (isValidMobile(log.trim()) || isValidMail(log.trim())) { //uncomment after fixed regular expression
                 //Requests.getInstance().autorization(log.trim(), pas.trim(), new AutorizationCallback());
-                enter.setClickable(false);
+                //enter.setClickable(false);
+                act.getPresenter().onLogInClick(log.trim(),pas.trim());
+            } else{
+                login.setError(act.getResources().getString(R.string.wrong_login));
             }
         }
 

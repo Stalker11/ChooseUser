@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/but_login_style_back">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/but_login_style_back"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <ImageButton
+                android:id="@+id/registration_btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/color_background_login"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/splash_dimen"
+                android:text="@string/registration"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="31dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity=""
+                android:hint="@string/enter_name"
+                android:textColorHint="@color/white"
+                android:theme="@style/EditTextInput"
+                app:colorAccent="@color/white">
+
+                <EditText
+                    android:id="@+id/name_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:inputType="textCapWords"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/white" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_input_name"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/white"
+                android:theme="@style/EditTextInput">
+
+                <EditText
+                    android:id="@+id/family_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/enter_last_name"
+                    android:inputType="textCapWords"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_input_family"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/white"
+                android:theme="@style/EditTextInput">
+
+                <EditText
+                    android:id="@+id/email_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/enter_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_input_email"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:textColorHint="@color/white"
+                android:theme="@style/EditTextInput"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/white">
+
+                <EditText
+                    android:id="@+id/pass_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/enter_password"
+                    android:inputType="textPassword"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_pass_ver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_input_pass"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:textColorHint="@color/white"
+                android:theme="@style/EditTextInput"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/white">
+
+                <EditText
+                    android:id="@+id/pass_ver_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:shadowColor="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/white" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/regis_enter_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_input_pass_ver"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_login_style"
+                android:text="@string/to_registration"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
