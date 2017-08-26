@@ -24,6 +24,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activities.UserActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>
 

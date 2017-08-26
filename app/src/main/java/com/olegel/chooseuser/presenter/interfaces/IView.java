@@ -9,7 +9,10 @@ import com.olegel.chooseuser.models.SignInModel;
 
 public interface IView {
     void onLoginClick();
+
     void onRegisterClick();
+
     void logIn(SignInModel model);
+
     void register(RegistrationModel model);
 }

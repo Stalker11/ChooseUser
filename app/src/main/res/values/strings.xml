@@ -17,4 +17,6 @@
     <string name="all_fields_must_be_filled">Все поля должны быть заполнены</string>
     <string name="password_not_confirm">Проверьте правильность ввода пароля</string>
     <string name="incorrectly_email">Неверный e-mail</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
 </resources>

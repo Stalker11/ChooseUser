@@ -23,14 +23,13 @@ public class RegisterActivity extends BaseActivity implements IView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
-        if (presenter == null) {
-            presenter = new MainPresenter(this);
-        }
-        //  presenter.onRegisterClick();
     }
 
     @Override
     protected void onResume() {
+        if (presenter == null) {
+            presenter = new MainPresenter(this);
+        }
         new FragmentLauncher(getSupportFragmentManager()).setChooseFragment(false);
         super.onResume();
     }
@@ -65,6 +64,9 @@ public class RegisterActivity extends BaseActivity implements IView {
         super.onPause();
     }
 
+    /**
+     * Get presenter for fragments
+     */
     public IMainPresentor getPresenter() {
         return presenter;
     }

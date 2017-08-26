@@ -27,21 +27,26 @@ public class UsersPresentor implements IUsersPresenter {
         this.viewUsers = viewUsers;
         request();
     }
-    private void request(){
+
+    private void request() {
         disposable = RequestsRetrofit.getInstance().getUsersInfo().getUsersList(1)
                 .subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::users);
     }
-    private void users(UsersListModel model){
-        Log.d(TAG, "users: "+model.getUsers().get(0).getName());
-    }
-    @Override
-    public void onItemClick(int position) {
 
+    private void users(UsersListModel model) {
+        Log.d(TAG, "users: " + model.getUsers().get(0).getName());
+        viewUsers.setUsersList(model.getUsers());
+    }
+
+    @Override
+    public void onItemClick(UserModel user) {
+        viewUsers.onItemClick(user);
     }
 
     @Override
     public void onBind() {
-
+        disposable.dispose();
+        viewUsers = null;
     }
 }

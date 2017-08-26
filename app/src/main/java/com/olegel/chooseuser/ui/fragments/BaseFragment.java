@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class BaseFragment extends Fragment {
     private ProgressDialog progressDialog;
+
     public void showLongToast(String message) {
         Toast.makeText(getActivity(), message,
                 Toast.LENGTH_LONG).show();
@@ -19,14 +20,16 @@ public class BaseFragment extends Fragment {
         Toast.makeText(getActivity(), message,
                 Toast.LENGTH_LONG).show();
     }
-    public void showProgressDialog(){
-      if(progressDialog == null){
-          progressDialog = new ProgressDialog(getActivity());
-          progressDialog.setMessage("Loading....");
-      }
+
+    public void showProgressDialog() {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading....");
+        }
     }
-    public void hideProgressDialog(){
-        if(progressDialog != null && progressDialog.isShowing()){
+
+    public void hideProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }

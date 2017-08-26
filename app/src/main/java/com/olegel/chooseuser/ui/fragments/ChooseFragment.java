@@ -18,24 +18,27 @@ import butterknife.Unbinder;
  */
 
 public class ChooseFragment extends BaseFragment {
-   private Unbinder unbinder;
+    private Unbinder unbinder;
     private View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_choose,null);
-        unbinder = ButterKnife.bind(this,view);
+        view = inflater.inflate(R.layout.fragment_choose, null);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
+
     @OnClick(R.id.but_open_signin_page)
-    public void signIn(){
-        ((RegisterActivity)getActivity()).getPresenter().onSignInChooseClick();
+    public void signIn() {
+        ((RegisterActivity) getActivity()).getPresenter().onSignInChooseClick();
     }
+
     @OnClick(R.id.but_open_registration_page)
-    public void register(){
-        ((RegisterActivity)getActivity()).getPresenter().onRegisterChooseClick();
+    public void register() {
+        ((RegisterActivity) getActivity()).getPresenter().onRegisterChooseClick();
     }
+
     @Override
     public void onDestroyView() {
         unbinder.unbind();

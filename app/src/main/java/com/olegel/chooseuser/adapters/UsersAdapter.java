@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.olegel.chooseuser.R;
 import com.olegel.chooseuser.models.UserModel;
+import com.olegel.chooseuser.util.RecyclerViewOnItemClick;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -22,18 +23,22 @@ import butterknife.Unbinder;
  * Created by Oleg on 25.08.2017.
  */
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> {
     private Unbinder unbinder;
     private List<UserModel> users;
     private View view;
     private Context cont;
     private ViewHolder viewHolder;
+    private RecyclerViewOnItemClick listener;
     public static final String TAG = UsersAdapter.class.getSimpleName();
 
     public UsersAdapter(List<UserModel> users) {
         this.users = users;
     }
 
+    /**
+     * Unbind butterKnife in adapter
+     */
     public void unbindButterKnife() {
         if (unbinder != null) unbinder.unbind();
     }
@@ -41,14 +46,22 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_user_list, parent, false);
+                .inflate(R.layout.user_list_layout, parent, false);
         viewHolder = new ViewHolder(view);
         cont = parent.getContext();
-        return null;
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClick(users.get(position));
+                }
+            }
+        });
         holder.userName.setText(users.get(position).getName());
         holder.userLastName.setText(users.get(position).getLastName());
         Picasso.with(cont)
@@ -61,7 +74,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return users.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -76,5 +89,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
             super(itemView);
             unbinder = ButterKnife.bind(this, itemView);
         }
+    }
+
+    /**
+     * Set custom onClickListener for recyclerView
+     *
+     * @param onClickListener listener
+     */
+    public void setOnItemClickListener(RecyclerViewOnItemClick onClickListener) {
+        this.listener = onClickListener;
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:layout_height="wrap_content"
     android:divider="@drawable/user_list_root_divider"
-    android:showDividers="middle"
-    android:padding="@dimen/splash_dimen">
+    android:orientation="horizontal"
+    android:padding="@dimen/splash_dimen"
+    android:showDividers="middle">
 
     <ImageView
         android:id="@+id/user_list_avatar"
@@ -24,8 +24,7 @@
         <TextView
             android:id="@+id/user_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/user_list_last_name"

@@ -35,12 +35,13 @@ public class SignInFragment extends BaseFragment {
     EditText password;
     @BindView(R.id.login_enter)
     Button enter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_authorization, null);
-        unbinder = ButterKnife.bind(this,view);
-        act = (RegisterActivity)getActivity();
+        unbinder = ButterKnife.bind(this, view);
+        act = (RegisterActivity) getActivity();
         return view;
     }
 
@@ -49,6 +50,7 @@ public class SignInFragment extends BaseFragment {
         unbinder.unbind();
         super.onDestroyView();
     }
+
     /**
      * CLick to button back in toolbar
      */
@@ -70,8 +72,8 @@ public class SignInFragment extends BaseFragment {
             if (isValidMobile(log.trim()) || isValidMail(log.trim())) { //uncomment after fixed regular expression
                 //Requests.getInstance().autorization(log.trim(), pas.trim(), new AutorizationCallback());
                 //enter.setClickable(false);
-                act.getPresenter().onLogInClick(log.trim(),pas.trim());
-            } else{
+                act.getPresenter().onLogInClick(log.trim(), pas.trim());
+            } else {
                 login.setError(act.getResources().getString(R.string.wrong_login));
             }
         }
@@ -91,6 +93,7 @@ public class SignInFragment extends BaseFragment {
 
     /**
      * Check phone number
+     *
      * @param phone text from password field
      */
     private boolean isValidMobile(String phone) {
@@ -99,6 +102,7 @@ public class SignInFragment extends BaseFragment {
 
     /**
      * Check mail
+     *
      * @param email text from password field
      */
     private boolean isValidMail(String email) {

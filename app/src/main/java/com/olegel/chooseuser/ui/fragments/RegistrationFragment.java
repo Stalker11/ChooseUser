@@ -43,10 +43,11 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_registration, null);
-        unbinder = ButterKnife.bind(this,view);
-        act = (RegisterActivity)getActivity();
+        unbinder = ButterKnife.bind(this, view);
+        act = (RegisterActivity) getActivity();
         return view;
     }
+
     /**
      * Generate checking fields and request for creating user
      */
@@ -62,15 +63,12 @@ public class RegistrationFragment extends BaseFragment {
                 userMail.length() == 0 || userPassword.length() == 0 ||
                 confirmUserPassword.length() == 0) {
             showShortToast(view.getResources().getString(R.string.all_fields_must_be_filled));
-        }  else if (!userPassword.equals(confirmUserPassword)) {
+        } else if (!userPassword.equals(confirmUserPassword)) {
             confirmPassword.setError(view.getResources().getString(R.string.password_not_confirm));
         } else if (!isValidMail(userMail)) {
             email.setError(view.getResources().getString(R.string.incorrectly_email));
         } else if (isValidMobile(userMail) || isValidMail(userMail)) {
-           /* Requests.getInstance().registration(userMail, userPassword, confirmUserPassword,
-                    nameFirst, nameLast, null, new RegistrationCallBack());
-            registration.setClickable(false);*/
-           act.getPresenter().onRegisterClick(nameFirst,nameLast,userMail,userPassword,confirmUserPassword);
+            act.getPresenter().onRegisterClick(nameFirst, nameLast, userMail, userPassword, confirmUserPassword);
         }
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) act.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -99,6 +97,7 @@ public class RegistrationFragment extends BaseFragment {
     private boolean isValidMail(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
     @Override
     public void onDestroyView() {
         unbinder.unbind();
