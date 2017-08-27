@@ -17,4 +17,5 @@ public interface IMainPresentor {
             , String password, String confirmPassword);
 
     void unbind();
+    void bind(IView view);
 }

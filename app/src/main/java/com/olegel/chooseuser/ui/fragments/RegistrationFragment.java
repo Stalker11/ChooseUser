@@ -81,7 +81,7 @@ public class RegistrationFragment extends BaseFragment {
      */
     @OnClick(R.id.registration_btn_back)
     public void back() {
-        new FragmentLauncher(act.getSupportFragmentManager()).setChooseFragment(false);
+        new FragmentLauncher(act.getSupportFragmentManager()).showChooseFragment(false);
     }
 
     /**

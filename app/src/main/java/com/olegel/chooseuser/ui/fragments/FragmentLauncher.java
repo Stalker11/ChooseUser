@@ -32,19 +32,19 @@ public class FragmentLauncher {
         trans.commit();
     }
 
-    public void setChooseFragment(boolean addToBackStack) {
+    public void showChooseFragment(boolean addToBackStack) {
         launch(new ChooseFragment(), ChooseFragment.class.getSimpleName(), addToBackStack);
     }
 
-    public void setAuthorizationFragment(boolean addToBackStack) {
+    public void showAuthorizationFragment(boolean addToBackStack) {
         launch(new SignInFragment(), SignInFragment.class.getSimpleName(), addToBackStack);
     }
 
-    public void setRegistrationFragment(boolean addToBackStack) {
+    public void showRegistrationFragment(boolean addToBackStack) {
         launch(new RegistrationFragment(), RegistrationFragment.class.getSimpleName(), addToBackStack);
     }
 
-    public void setUserListFragment(List<UserModel> userModels, boolean addToBackStack) {
+    public void showUserListFragment(List<UserModel> userModels, boolean addToBackStack) {
         UsersListFragment fragment = new UsersListFragment();
         if (userModels != null) {
             Bundle bundle = new Bundle();
@@ -54,7 +54,7 @@ public class FragmentLauncher {
         launch(fragment, UsersListFragment.class.getSimpleName(), addToBackStack);
     }
 
-    public void setUserDetailFragment(UserModel user, boolean addToBackStack) {
+    public void showUserDetailFragment(UserModel user, boolean addToBackStack) {
         UserDetailFragment fragment = new UserDetailFragment();
         if (user != null) {
             Bundle bundle = new Bundle();
@@ -62,5 +62,15 @@ public class FragmentLauncher {
             fragment.setArguments(bundle);
         }
         launch(fragment, UsersListFragment.class.getSimpleName(), addToBackStack);
+    }
+
+    public void showErrorFragment(String error, boolean addToBackStack) {
+        ErrorFragment fragment = new ErrorFragment();
+        if (error != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(AppConstants.PUT_ERROR, error);
+            fragment.setArguments(bundle);
+        }
+        launch(fragment, ErrorFragment.class.getSimpleName(), addToBackStack);
     }
 }

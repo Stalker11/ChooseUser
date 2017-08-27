@@ -2,6 +2,7 @@ package com.olegel.chooseuser.presenter;
 
 import android.util.Log;
 
+import com.olegel.checkinternet.ICallBack;
 import com.olegel.chooseuser.models.UserModel;
 import com.olegel.chooseuser.models.UsersListModel;
 import com.olegel.chooseuser.network.RequestsRetrofit;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -23,20 +25,22 @@ public class UsersPresentor implements IUsersPresenter {
     private Disposable disposable;
     public static final String TAG = UsersPresentor.class.getSimpleName();
 
-    public UsersPresentor(IViewUsers viewUsers) {
-        this.viewUsers = viewUsers;
+    public UsersPresentor() {
         request();
     }
 
     private void request() {
         disposable = RequestsRetrofit.getInstance().getUsersInfo().getUsersList(1)
                 .subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::users);
+                .subscribe(this::users, this::error);
     }
 
     private void users(UsersListModel model) {
-        Log.d(TAG, "users: " + model.getUsers().get(0).getName());
         viewUsers.setUsersList(model.getUsers());
+    }
+
+    private void error(Throwable throwable) {
+        viewUsers.onError(throwable.getMessage());
     }
 
     @Override
@@ -45,8 +49,13 @@ public class UsersPresentor implements IUsersPresenter {
     }
 
     @Override
-    public void onBind() {
+    public void unBind() {
         disposable.dispose();
         viewUsers = null;
+    }
+
+    @Override
+    public void bind(IViewUsers viewUsers) {
+        this.viewUsers = viewUsers;
     }
 }

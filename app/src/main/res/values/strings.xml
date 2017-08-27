@@ -6,6 +6,7 @@
     <string name="telephone_or_email">Телефон или Email</string>
     <string name="restore_password">Забыли пароль?</string>
     <string name="password">Пароль</string>
+    <string name="not_internet_connection">Нет подключения к интернет</string>
     <string name="short_password">Поле логина или пароля не может быть пустым</string>
     <string name="wrong_login">Пароль может быть только почта или телефон</string>
     <string name="registration">Регистрация</string>

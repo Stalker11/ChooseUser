@@ -14,10 +14,6 @@ public class MainPresenter implements IMainPresentor {
     private SignInModel signIn;
     private RegistrationModel registration;
 
-    public MainPresenter(IView view) {
-        this.view = view;
-    }
-
     @Override
     public void onSignInChooseClick() {
         view.onLoginClick();
@@ -56,5 +52,10 @@ public class MainPresenter implements IMainPresentor {
     @Override
     public void unbind() {
         view = null;
+    }
+
+    @Override
+    public void bind(IView view) {
+        this.view = view;
     }
 }

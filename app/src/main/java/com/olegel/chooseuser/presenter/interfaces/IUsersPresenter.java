@@ -8,6 +8,6 @@ import com.olegel.chooseuser.models.UserModel;
 
 public interface IUsersPresenter {
     void onItemClick(UserModel user);
-
-    void onBind();
+    void unBind();
+    void bind(IViewUsers viewUsers);
 }

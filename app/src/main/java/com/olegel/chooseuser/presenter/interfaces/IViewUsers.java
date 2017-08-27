@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface IViewUsers<T> {
     void onItemClick(UserModel user);
-
+    void onError(String error);
     void setUsersList(List<T> users);
 }

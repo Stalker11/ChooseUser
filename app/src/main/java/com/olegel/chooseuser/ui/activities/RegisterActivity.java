@@ -28,22 +28,23 @@ public class RegisterActivity extends BaseActivity implements IView {
     @Override
     protected void onResume() {
         if (presenter == null) {
-            presenter = new MainPresenter(this);
+            presenter = new MainPresenter();
         }
-        new FragmentLauncher(getSupportFragmentManager()).setChooseFragment(false);
+        presenter.bind(this);
+        new FragmentLauncher(getSupportFragmentManager()).showChooseFragment(false);
         super.onResume();
     }
 
     @Override
     public void onLoginClick() {
         Log.d(TAG, "onLoginClick: ");
-        new FragmentLauncher(getSupportFragmentManager()).setAuthorizationFragment(false);
+        new FragmentLauncher(getSupportFragmentManager()).showAuthorizationFragment(false);
     }
 
     @Override
     public void onRegisterClick() {
         Log.d(TAG, "onRegisterClick: ");
-        new FragmentLauncher(getSupportFragmentManager()).setRegistrationFragment(false);
+        new FragmentLauncher(getSupportFragmentManager()).showRegistrationFragment(false);
     }
 
     @Override
